@@ -14,41 +14,50 @@ class ViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDele
     @IBOutlet weak var measurementSelectionTableView: UITableView!
     @IBOutlet weak var measurementConversionSelection: UIPickerView!
     
-    static var measurementList = ["Area","Length","Mass","Pressure","Speed",
-                           "Temperature","Time","Volume"]
+    static var measurementList =
+        ["Area", "Length", "Mass", "Pressure", "Speed", "Temperature", "Time", "Volume"]
     
-    /*static var lengthTypesDatabase =
+    static var areaTypesDatabase =
+        [["Square Kilometer","Square Meter","Square Mile","Square Yard","Square Foot","Square Inch", "Hectare","Acre"],
+         ["Square Kilometer","Square Meter","Square Mile","Square Yard","Square Foot","Square Inch", "Hectare","Acre"]]
+    
+    static var lengthTypesDatabase =
         [["Kilometer","Meter","Centimeter","Millimeter","Micrometer","Nanometer","Mile","Yard","Foot","Inch","Nautical Mile"],
-        ["Kilometer","Meter","Centimeter","Millimeter","Micrometer","Nanometer","Mile","Yard","Foot","Inch","Nautical Mile"]]
+         ["Kilometer","Meter","Centimeter","Millimeter","Micrometer","Nanometer","Mile","Yard","Foot","Inch","Nautical Mile"]]
     
-    static var temperatureDatabase =
-            [["Faranheight","Celsius"],
-            ["Faranheight","Celsius"]]*/
+    static var massTypesDatabase =
+        [["Metric Ton", "Kilogram", "Gram", "Milligram", "Microgram", "Imperial Ton", "US Ton", "Stone", "Pound", "Ounce"],
+         ["Metric Ton", "Kilogram", "Gram", "Milligram", "Microgram", "Imperial Ton", "US Ton", "Stone", "Pound", "Ounce"]]
+    
+    static var pressureTypesDatabase =
+        [["Atmosphere", "Bar", "Pascal", "Pound-Force Per Square Inch", "Torr"],
+         ["Atmosphere", "Bar", "Pascal", "Pound-Force Per Square Inch", "Torr"]]
+    
+    static var speedTypesDatabase =
+        [["Miles Per Hour", "Foot Per Second", "Meter Per Second", "Kilometer Per Hour", "Knot"],
+         ["Miles Per Hour", "Foot Per Second", "Meter Per Second", "Kilometer Per Hour", "Knot"]]
+    
+    static var temperatureTypesDatabase =
+        [["Faranheight", "Celsius"],
+         ["Faranheight", "Celsius"]]
+    
+    static var timeTypesDatabase =
+        [["Nanosecond", "Microsecond", "Millisecond", "Second", "Minute", "Hour", "Day", "Week", "Month", "Year", "Decade", "Century"],
+         ["Nanosecond", "Microsecond", "Millisecond", "Second", "Minute", "Hour", "Day", "Week", "Month", "Year", "Decade", "Century"]]
+    
+    static var volumeTypesDatabase =
+        [["US Liquid Gallon", "US Liquid Quart", "US Liquid Pint", "US Legal Cup", "US Fluid Ounce", "US Tablespoon", "US Teaspoon", "Cubic Meter", "Liter", "Millimeter", "Imperial Gallon", "Imperial Quart", "Imperial Cup", "Imperial Fluid Ounce", "Imperial Tablespoon", "Imperial Teaspoon", "Cubic Foot", "Cubic Inch"],
+         ["US Liquid Gallon", "US Liquid Quart", "US Liquid Pint", "US Legal Cup", "US Fluid Ounce", "US Tablespoon", "US Teaspoon", "Cubic Meter", "Liter", "Millimeter", "Imperial Gallon", "Imperial Quart", "Imperial Cup", "Imperial Fluid Ounce", "Imperial Tablespoon", "Imperial Teaspoon", "Cubic Foot", "Cubic Inch"]]
     
     static var allDatabases =
-        ["Length": [["Kilometer","Meter","Centimeter","Millimeter","Micrometer","Nanometer","Mile","Yard","Foot","Inch","Nautical Mile"],
-                    ["Kilometer","Meter","Centimeter","Millimeter","Micrometer","Nanometer","Mile","Yard","Foot","Inch","Nautical Mile"]],
-         
-         "Temperature": [["Faranheight","Celsius"],
-                         ["Faranheight","Celsius"]],
-         
-         "Area": [["A","B"],
-                  ["A","B"]],
-    
-         "Mass": [["c","d"],
-                  ["c","d"]],
-    
-         "Pressure": [["e","f"],
-                      ["e","f"]],
-    
-         "Speed": [["A","B"],
-                   ["A","B"]],
-    
-         "Time": [["g","h"],
-                  ["g","h"]],
-    
-         "Volume": [["i","j"],
-                    ["i","j"]]]
+        ["Area": areaTypesDatabase,
+         "Length": lengthTypesDatabase,
+         "Mass": massTypesDatabase,
+         "Pressure": pressureTypesDatabase,
+         "Speed": speedTypesDatabase,
+         "Temperature": temperatureTypesDatabase,
+         "Time": timeTypesDatabase,
+         "Volume": volumeTypesDatabase]
     
     var currentMeasurement = "Length"
 
@@ -155,5 +164,6 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource
         measurementSelectionDropButton.setTitle(ViewController.measurementList[indexPath.row], for: .normal)
         currentMeasurement = ViewController.measurementList[indexPath.row]
         animate(toogle: false)
+        //ViewController.component[0].ViewDidLoad
     }
 }
