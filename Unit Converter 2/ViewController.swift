@@ -468,51 +468,6 @@ func squareAcreConversion(convertTo: String, value: Double) -> Double
     return convertedValue
 }
 
-func metricConversion(convertTo: String, value: Double, factor: Double) -> Double
-{
-    var convertedValue: Double
-    convertedValue = 0.0
-    
-    switch(convertTo)
-    {
-        case "Kilometer":
-        convertedValue = value * factor
-        
-        case "Meter":
-        convertedValue = (value * 1000) * factor
-        
-        case "Centimeter":
-        convertedValue = (value * 100000) * factor
-        
-        case "Millimeter":
-        convertedValue = (value * 1000000) * factor
-        
-        case "Micrometer":
-        convertedValue = (value * 1000000000) * factor
-        
-        case "Nanometer":
-        convertedValue = (value * 1000000000000) * factor
-        
-        case "Mile":
-        convertedValue = (value * 0.621371) * factor
-        
-        case "Yard":
-        convertedValue = (value * 1093.61) * factor
-        
-        case "Foot":
-        convertedValue = (value * 3280.84) * factor
-        
-        case "Inch":
-        convertedValue = (value * 39370.1) * factor
-        
-        case "Nautical Mile":
-        convertedValue = (value * 0.539957) * factor
-        
-        default: break
-    }
-    return convertedValue
-}
-
 func kilometerConversion(convertTo: String, value: Double) -> Double
 {
     var convertedValue: Double
