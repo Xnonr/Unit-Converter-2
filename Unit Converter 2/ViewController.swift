@@ -16,7 +16,7 @@ class ViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDele
     @IBAction func conversionButton(_ sender: Any)
     {
         let inputValue = Double(inputValueField.text ?? "") ?? 0.0
-        let outputValue: Double = Matrices.conversion(measurementType: currentMeasurement, from: 0, to: 0, inputValue: inputValue)
+        let outputValue: Double = Matrices.conversion(measurementType: currentMeasurement, from: fromValue, to: toValue, inputValue: inputValue)
         outputValueField.text = String(outputValue)
     }
     
@@ -28,6 +28,9 @@ class ViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDele
         ["Area", "Length", "Mass", "Pressure", "Speed", "Temperature", "Time", "Volume"]
     
     var currentMeasurement = "Length"
+    
+    var fromValue: Int = 0
+    var toValue: Int = 0
     
     func numberOfComponents(in pickerView: UIPickerView) -> Int
     {
@@ -49,26 +52,19 @@ class ViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDele
         return Matrices.allDatabases[currentMeasurement]?[component][localrow]
     }
     
-    /*func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int)
+    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int)
     {
-        print(component)
-        print(row)
-        
         switch(component)
         {
             case 0:
-                lengthType1 = lengthTypesDatabase[component][row]
-                lengthType1Label.text = lengthType1
-                print lengthType1
-            
+                fromValue = row
+
             case 1:
-                lengthType2 = lengthTypesDatabase[component][row]
-                lengthType2Label.text = lengthType2
-                print lengthType2
+                toValue = row
             
             default:break
         }
-    }*/
+    }
     
     override func viewDidLoad()
     {
