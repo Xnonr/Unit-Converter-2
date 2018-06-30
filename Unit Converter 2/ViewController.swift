@@ -34,7 +34,7 @@ class ViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDele
     
     func numberOfComponents(in pickerView: UIPickerView) -> Int
     {
-        return Matrices.allDatabases[currentMeasurement]!.count //2
+        return Matrices.allDatabases[currentMeasurement]!.count
     }
     
     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int
@@ -57,11 +57,11 @@ class ViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDele
         switch(component)
         {
             case 0:
-                fromValue = row
-
+            fromValue = row
+                
             case 1:
-                toValue = row
-            
+            toValue = row
+                
             default:break
         }
     }
