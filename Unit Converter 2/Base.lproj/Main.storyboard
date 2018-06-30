@@ -142,13 +142,11 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <connections>
-                        <outlet property="enteredValueField" destination="Waa-b8-X7M" id="mcp-v7-F04"/>
                         <outlet property="inputValueField" destination="Waa-b8-X7M" id="rAS-2v-APR"/>
                         <outlet property="measurementConversionSelection" destination="hMk-P6-ZJ9" id="T50-j9-Vdh"/>
                         <outlet property="measurementSelectionDropButton" destination="02a-y3-ldB" id="04h-qs-K2m"/>
                         <outlet property="measurementSelectionTableView" destination="eGn-qb-Voe" id="s8E-Yu-4ac"/>
                         <outlet property="outputValueField" destination="2Z7-t8-zlk" id="MsW-9O-xRP"/>
-                        <outlet property="resultingValueField" destination="2Z7-t8-zlk" id="r45-xW-qEh"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

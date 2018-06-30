@@ -15,7 +15,7 @@ class ViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDele
     
     @IBAction func conversionButton(_ sender: Any)
     {
-        
+        outputValueField.text = inputValueField.text
     }
     
     @IBOutlet weak var measurementSelectionDropButton: UIButton!
@@ -1097,7 +1097,7 @@ func milligramTonConversion(convertTo: String, value: Double) -> Double
     switch(convertTo)
     {
     case "Metric Ton":
-        convertedValue = (value * )
+        convertedValue = (value * 0)
         
     case "Kilogram":
         convertedValue = (value * 1000)
@@ -1139,7 +1139,7 @@ func microgramConversion(convertTo: String, value: Double) -> Double
     switch(convertTo)
     {
     case "Metric Ton":
-        convertedValue = (value * )
+        convertedValue = (value * 0)
         
     case "Kilogram":
         convertedValue = (value * 1000)
@@ -1181,7 +1181,7 @@ func imperialTonConversion(convertTo: String, value: Double) -> Double
     switch(convertTo)
     {
     case "Metric Ton":
-        convertedValue = (value * )
+        convertedValue = (value * 0)
         
     case "Kilogram":
         convertedValue = (value * 1000)
