@@ -46,8 +46,8 @@ class ViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDele
          ["Miles Per Hour", "Foot Per Second", "Meter Per Second", "Kilometer Per Hour", "Knot"]]
     
     static var temperatureTypesDatabase =
-        [["Faranheight", "Celsius"],
-         ["Faranheight", "Celsius"]]
+        [["Celsius", "Fahrenheit", "Kelvin"],
+         ["Celsius", "Fahrenheit", "Kelvin"]]
     
     static var timeTypesDatabase =
         [["Nanosecond", "Microsecond", "Millisecond", "Second", "Minute", "Hour", "Day", "Week", "Month", "Year", "Decade", "Century"],
@@ -331,31 +331,31 @@ func squareFootConversion(convertTo: String, value: Double) -> Double
     
     switch(convertTo)
     {
-    case "Square Kilometer":
+        case "Square Kilometer":
+        convertedValue = (value * 0.000000092903)
+        
+        case "Square Meter":
+        convertedValue = (value * 0.092903)
+        
+        case "Square Mile":
+        convertedValue = (value * 0.00000003587)
+        
+        case "Square Yard":
+        convertedValue = (value * 0.111111)
+        
+        case "Square Foot":
         convertedValue = value
         
-    case "Square Meter":
-        convertedValue = (value * 1000000)
+        case "Square Inch":
+        convertedValue = (value * 144)
         
-    case "Square Mile":
-        convertedValue = (value * 0.386102)
+        case "Hectare":
+        convertedValue = (value * 0.0000092903)
         
-    case "Square Yard":
-        convertedValue = (value * 1196000)
+        case "Acre":
+        convertedValue = (value * 0.000022957)
         
-    case "Square Foot":
-        convertedValue = (value * 10760000)
-        
-    case "Square Inch":
-        convertedValue = (value * 1550000000)
-        
-    case "Hectare":
-        convertedValue = (value * 100)
-        
-    case "Acre":
-        convertedValue = (value * 247.105)
-        
-    default: break
+        default: break
     }
     return convertedValue
 }
@@ -367,31 +367,31 @@ func squareInchConversion(convertTo: String, value: Double) -> Double
     
     switch(convertTo)
     {
-    case "Square Kilometer":
+        case "Square Kilometer":
+        convertedValue = (value * 0.00000000064516)
+        
+        case "Square Meter":
+        convertedValue = (value * 0.00064516)
+        
+        case "Square Mile":
+        convertedValue = (value * 0.0000000002491)
+        
+        case "Square Yard":
+        convertedValue = (value * 0.000771605)
+        
+        case "Square Foot":
+        convertedValue = (value * 0.00694444)
+        
+        case "Square Inch":
         convertedValue = value
         
-    case "Square Meter":
-        convertedValue = (value * 1000000)
+        case "Hectare":
+        convertedValue = (value * 0.000000064516)
         
-    case "Square Mile":
-        convertedValue = (value * 0.386102)
+        case "Acre":
+        convertedValue = (value * 0.00000015942)
         
-    case "Square Yard":
-        convertedValue = (value * 1196000)
-        
-    case "Square Foot":
-        convertedValue = (value * 10760000)
-        
-    case "Square Inch":
-        convertedValue = (value * 1550000000)
-        
-    case "Hectare":
-        convertedValue = (value * 100)
-        
-    case "Acre":
-        convertedValue = (value * 247.105)
-        
-    default: break
+        default: break
     }
     return convertedValue
 }
@@ -403,31 +403,31 @@ func squareHectareConversion(convertTo: String, value: Double) -> Double
     
     switch(convertTo)
     {
-    case "Square Kilometer":
+        case "Square Kilometer":
+        convertedValue = (value * 0.01)
+        
+        case "Square Meter":
+        convertedValue = (value * 10000)
+        
+        case "Square Mile":
+        convertedValue = (value * 0.00386102)
+        
+        case "Square Yard":
+        convertedValue = (value * 11959.9)
+        
+        case "Square Foot":
+        convertedValue = (value * 107639)
+        
+        case "Square Inch":
+        convertedValue = (value * 15500000)
+        
+        case "Hectare":
         convertedValue = value
         
-    case "Square Meter":
-        convertedValue = (value * 1000000)
+        case "Acre":
+        convertedValue = (value * 2.47105)
         
-    case "Square Mile":
-        convertedValue = (value * 0.386102)
-        
-    case "Square Yard":
-        convertedValue = (value * 1196000)
-        
-    case "Square Foot":
-        convertedValue = (value * 10760000)
-        
-    case "Square Inch":
-        convertedValue = (value * 1550000000)
-        
-    case "Hectare":
-        convertedValue = (value * 100)
-        
-    case "Acre":
-        convertedValue = (value * 247.105)
-        
-    default: break
+        default: break
     }
     return convertedValue
 }
@@ -439,35 +439,79 @@ func squareAcreConversion(convertTo: String, value: Double) -> Double
     
     switch(convertTo)
     {
-    case "Square Kilometer":
+        case "Square Kilometer":
+        convertedValue = (value * 0.00404686)
+        
+        case "Square Meter":
+        convertedValue = (value * 4046.86)
+        
+        case "Square Mile":
+        convertedValue = (value * 0.0015625)
+        
+        case "Square Yard":
+        convertedValue = (value * 4840)
+        
+        case "Square Foot":
+        convertedValue = (value * 43560)
+        
+        case "Square Inch":
+        convertedValue = (value * 6273000)
+        
+        case "Hectare":
+        convertedValue = (value * 0.404686)
+        
+        case "Acre":
         convertedValue = value
         
-    case "Square Meter":
-        convertedValue = (value * 1000000)
-        
-    case "Square Mile":
-        convertedValue = (value * 0.386102)
-        
-    case "Square Yard":
-        convertedValue = (value * 1196000)
-        
-    case "Square Foot":
-        convertedValue = (value * 10760000)
-        
-    case "Square Inch":
-        convertedValue = (value * 1550000000)
-        
-    case "Hectare":
-        convertedValue = (value * 100)
-        
-    case "Acre":
-        convertedValue = (value * 247.105)
-        
-    default: break
+        default: break
     }
     return convertedValue
 }
 
+func metricConversion(convertTo: String, value: Double, factor: Double) -> Double
+{
+    var convertedValue: Double
+    convertedValue = 0.0
+    
+    switch(convertTo)
+    {
+        case "Kilometer":
+        convertedValue = value * factor
+        
+        case "Meter":
+        convertedValue = (value * 1000) * factor
+        
+        case "Centimeter":
+        convertedValue = (value * 100000) * factor
+        
+        case "Millimeter":
+        convertedValue = (value * 1000000) * factor
+        
+        case "Micrometer":
+        convertedValue = (value * 1000000000) * factor
+        
+        case "Nanometer":
+        convertedValue = (value * 1000000000000) * factor
+        
+        case "Mile":
+        convertedValue = (value * 0.621371) * factor
+        
+        case "Yard":
+        convertedValue = (value * 1093.61) * factor
+        
+        case "Foot":
+        convertedValue = (value * 3280.84) * factor
+        
+        case "Inch":
+        convertedValue = (value * 39370.1) * factor
+        
+        case "Nautical Mile":
+        convertedValue = (value * 0.539957) * factor
+        
+        default: break
+    }
+    return convertedValue
+}
 
 func kilometerConversion(convertTo: String, value: Double) -> Double
 {
@@ -476,40 +520,40 @@ func kilometerConversion(convertTo: String, value: Double) -> Double
     
     switch(convertTo)
     {
-        case "Kilometer":
+    case "Kilometer":
         convertedValue = value
         
-        case "Meter":
+    case "Meter":
         convertedValue = (value * 1000)
         
-        case "Centimeter":
+    case "Centimeter":
         convertedValue = (value * 100000)
         
-        case "Millimeter":
+    case "Millimeter":
         convertedValue = (value * 1000000)
         
-        case "Micrometer":
+    case "Micrometer":
         convertedValue = (value * 1000000000)
         
-        case "Nanometer":
+    case "Nanometer":
         convertedValue = (value * 1000000000000)
         
-        case "Mile":
+    case "Mile":
         convertedValue = (value * 0.621371)
         
-        case "Yard":
+    case "Yard":
         convertedValue = (value * 1093.61)
         
-        case "Foot":
+    case "Foot":
         convertedValue = (value * 3280.84)
         
-        case "Inch":
+    case "Inch":
         convertedValue = (value * 39370.1)
         
-        case "Nautical Mile":
+    case "Nautical Mile":
         convertedValue = (value * 0.539957)
         
-        default: break
+    default: break
     }
     return convertedValue
 }
@@ -957,6 +1001,489 @@ func nauticalMileConversion(convertTo: String, value: Double) -> Double
         convertedValue = (value * 72913.4)
         
         case "Nautical Mile":
+        convertedValue = value
+        
+        default: break
+    }
+    return convertedValue
+}
+
+func metricTonConversion(convertTo: String, value: Double) -> Double
+{
+    var convertedValue: Double
+    convertedValue = 0.0
+    
+    switch(convertTo)
+    {
+        case "Metric Ton":
+        convertedValue = value
+        
+        case "Kilogram":
+        convertedValue = (value * 1000)
+        
+        case "Gram":
+        convertedValue = (value * 1000000)
+        
+        case "Milligram":
+        convertedValue = (value * 1000000000)
+        
+        case "Microgram":
+        convertedValue = (value * 1000000000000)
+        
+        case "Imperial Ton":
+        convertedValue = (value * 0.984207)
+        
+        case "US Ton":
+        convertedValue = (value * 1.10231)
+        
+        case "Stone":
+        convertedValue = (value * 157.473)
+        
+        case "Pound":
+        convertedValue = (value * 2204.62)
+        
+        case "Ounce":
+        convertedValue = (value * 35274)
+        
+        default: break
+    }
+    return convertedValue
+}
+
+func kilogramConversion(convertTo: String, value: Double) -> Double
+{
+    var convertedValue: Double
+    convertedValue = 0.0
+    
+    switch(convertTo)
+    {
+        case "Metric Ton":
+        convertedValue = (value * 0.001)
+        
+        case "Kilogram":
+        convertedValue = value
+        
+        case "Gram":
+        convertedValue = (value * 1000)
+        
+        case "Milligram":
+        convertedValue = (value * 1000000)
+        
+        case "Microgram":
+        convertedValue = (value * 1000000000)
+        
+        case "Imperial Ton":
+        convertedValue = (value * 0.000984207)
+        
+        case "US Ton":
+        convertedValue = (value * 0.00110231)
+        
+        case "Stone":
+        convertedValue = (value * 0.157473)
+        
+        case "Pound":
+        convertedValue = (value * 2.20462)
+        
+        case "Ounce":
+        convertedValue = (value * 35.274)
+        
+        default: break
+    }
+    return convertedValue
+}
+
+func gramConversion(convertTo: String, value: Double) -> Double
+{
+    var convertedValue: Double
+    convertedValue = 0.0
+    
+    switch(convertTo)
+    {
+        case "Metric Ton":
+        convertedValue = (value * 0.000001)
+        
+        case "Kilogram":
+        convertedValue = (value * 0.001)
+        
+        case "Gram":
+        convertedValue = value
+        
+        case "Milligram":
+        convertedValue = (value * 1000)
+        
+        case "Microgram":
+        convertedValue = (value * 1000000)
+        
+        case "Imperial Ton":
+        convertedValue = (value * 0.00000098421)
+        
+        case "US Ton":
+        convertedValue = (value * 0.0000011023)
+        
+        case "Stone":
+        convertedValue = (value * 0.000157473)
+        
+        case "Pound":
+        convertedValue = (value * 0.00220462)
+        
+        case "Ounce":
+        convertedValue = (value * 0.035274)
+        
+        default: break
+    }
+    return convertedValue
+}
+
+func milligramTonConversion(convertTo: String, value: Double) -> Double
+{
+    var convertedValue: Double
+    convertedValue = 0.0
+    
+    switch(convertTo)
+    {
+    case "Metric Ton":
+        convertedValue = (value * )
+        
+    case "Kilogram":
+        convertedValue = (value * 1000)
+        
+    case "Gram":
+        convertedValue = (value * 1000000)
+        
+    case "Milligram":
+        convertedValue = value
+        
+    case "Microgram":
+        convertedValue = (value * 1000000000000)
+        
+    case "Imperial Ton":
+        convertedValue = (value * 0.984207)
+        
+    case "US Ton":
+        convertedValue = (value * 1.10231)
+        
+    case "Stone":
+        convertedValue = (value * 157.473)
+        
+    case "Pound":
+        convertedValue = (value * 2204.62)
+        
+        case "Ounce":
+        convertedValue = (value * 0.000035274)
+        
+        default: break
+    }
+    return convertedValue
+}
+
+func microgramConversion(convertTo: String, value: Double) -> Double
+{
+    var convertedValue: Double
+    convertedValue = 0.0
+    
+    switch(convertTo)
+    {
+    case "Metric Ton":
+        convertedValue = (value * )
+        
+    case "Kilogram":
+        convertedValue = (value * 1000)
+        
+    case "Gram":
+        convertedValue = (value * 1000000)
+        
+    case "Milligram":
+        convertedValue = (value * 1000000000)
+        
+    case "Microgram":
+        convertedValue = value
+        
+    case "Imperial Ton":
+        convertedValue = (value * 0.984207)
+        
+    case "US Ton":
+        convertedValue = (value * 1.10231)
+        
+    case "Stone":
+        convertedValue = (value * 157.473)
+        
+    case "Pound":
+        convertedValue = (value * 2204.62)
+        
+    case "Ounce":
+        convertedValue = (value * 35274)
+        
+    default: break
+    }
+    return convertedValue
+}
+
+func imperialTonConversion(convertTo: String, value: Double) -> Double
+{
+    var convertedValue: Double
+    convertedValue = 0.0
+    
+    switch(convertTo)
+    {
+    case "Metric Ton":
+        convertedValue = (value * )
+        
+    case "Kilogram":
+        convertedValue = (value * 1000)
+        
+    case "Gram":
+        convertedValue = (value * 1000000)
+        
+    case "Milligram":
+        convertedValue = (value * 1000000000)
+        
+    case "Microgram":
+        convertedValue = (value * 1000000000000)
+        
+        case "Imperial Ton":
+        convertedValue = value
+        
+    case "US Ton":
+        convertedValue = (value * 1.10231)
+        
+    case "Stone":
+        convertedValue = (value * 157.473)
+        
+    case "Pound":
+        convertedValue = (value * 2204.62)
+        
+    case "Ounce":
+        convertedValue = (value * 35274)
+        
+        default: break
+    }
+    return convertedValue
+}
+
+func USTonConversion(convertTo: String, value: Double) -> Double
+{
+    var convertedValue: Double
+    convertedValue = 0.0
+    
+    switch(convertTo)
+    {
+        case "Metric Ton":
+        convertedValue = (value * 0.907185)
+        
+        case "Kilogram":
+        convertedValue = (value * 907.185)
+        
+        case "Gram":
+        convertedValue = (value * 907185)
+        
+        case "Milligram":
+        convertedValue = (value * 907200000)
+        
+        case "Microgram":
+        convertedValue = (value * 907200000000)
+        
+        case "Imperial Ton":
+        convertedValue = (value * 0.892857)
+        
+        case "US Ton":
+        convertedValue = value
+        
+        case "Stone":
+        convertedValue = (value * 142.857)
+        
+        case "Pound":
+        convertedValue = (value * 2000)
+        
+        case "Ounce":
+        convertedValue = (value * 32000)
+        
+        default: break
+    }
+    return convertedValue
+}
+
+func stoneConversion(convertTo: String, value: Double) -> Double
+{
+    var convertedValue: Double
+    convertedValue = 0.0
+    
+    switch(convertTo)
+    {
+        case "Metric Ton":
+        convertedValue = (value * 0.00635029)
+        
+        case "Kilogram":
+        convertedValue = (value * 6.35029)
+        
+        case "Gram":
+        convertedValue = (value * 6350.29)
+        
+        case "Milligram":
+        convertedValue = (value * 6350000)
+        
+        case "Microgram":
+        convertedValue = (value * 6350000000)
+        
+        case "Imperial Ton":
+        convertedValue = (value * 0.00625)
+        
+        case "US Ton":
+        convertedValue = (value * 0.007)
+        
+        case "Stone":
+        convertedValue = value
+        
+        case "Pound":
+        convertedValue = (value * 14)
+        
+        case "Ounce":
+        convertedValue = (value * 224)
+        
+        default: break
+    }
+    return convertedValue
+}
+
+func poundConversion(convertTo: String, value: Double) -> Double
+{
+    var convertedValue: Double
+    convertedValue = 0.0
+    
+    switch(convertTo)
+    {
+        case "Metric Ton":
+        convertedValue = (value * 0.000453592)
+        
+        case "Kilogram":
+        convertedValue = (value * 0.453592)
+        
+        case "Gram":
+        convertedValue = (value * 453.592)
+        
+        case "Milligram":
+        convertedValue = (value * 453592)
+        
+        case "Microgram":
+        convertedValue = (value * 453600000)
+        
+        case "Imperial Ton":
+        convertedValue = (value * 0.000446429)
+        
+        case "US Ton":
+        convertedValue = (value * 0.0005)
+        
+        case "Stone":
+        convertedValue = (value * 0.0714286)
+        
+        case "Pound":
+        convertedValue = value
+        
+        case "Ounce":
+        convertedValue = (value * 16)
+        
+        default: break
+    }
+    return convertedValue
+}
+
+func ounceConversion(convertTo: String, value: Double) -> Double
+{
+    var convertedValue: Double
+    convertedValue = 0.0
+    
+    switch(convertTo)
+    {
+        case "Metric Ton":
+        convertedValue = (value * 0.00002835)
+        
+        case "Kilogram":
+        convertedValue = (value * 0.0283495)
+        
+        case "Gram":
+        convertedValue = (value * 28.3495)
+        
+        case "Milligram":
+        convertedValue = (value * 28349.5)
+        
+        case "Microgram":
+        convertedValue = (value * 28350000)
+        
+        case "Imperial Ton":
+        convertedValue = (value * 0.000027902)
+        
+        case "US Ton":
+        convertedValue = (value * 0.00003125)
+        
+        case "Stone":
+        convertedValue = (value * 0.00446429)
+        
+        case "Pound":
+        convertedValue = (value * 0.0625)
+        
+        case "Ounce":
+        convertedValue = value
+        
+        default: break
+    }
+    return convertedValue
+}
+
+func celsiusConversion(convertTo: String, value: Double) -> Double
+{
+    var convertedValue: Double
+    convertedValue = 0.0
+    
+    switch(convertTo)
+    {
+        case "Celsius":
+        convertedValue = value
+        
+        case "Fahrenheit":
+        convertedValue = ((value * 1.8) + 32)
+        
+        case "Kelvin":
+        convertedValue = (value + 273.15)
+        
+        default: break
+    }
+    return convertedValue
+}
+
+func fahrenheitConversion(convertTo: String, value: Double) -> Double
+{
+    var convertedValue: Double
+    convertedValue = 0.0
+    
+    switch(convertTo)
+    {
+        case "Celsius":
+        convertedValue = ((value * 0.5556) - 17.7778)
+        
+        case "Fahrenheit":
+        convertedValue = value
+        
+        case "Kelvin":
+        convertedValue = ((value * 0.556) + 255.372)
+        
+        default: break
+    }
+    return convertedValue
+}
+
+func kelvinConversion(convertTo: String, value: Double) -> Double
+{
+    var convertedValue: Double
+    convertedValue = 0.0
+    
+    switch(convertTo)
+    {
+        case "Celsius":
+        convertedValue = (value - 273.15)
+        
+        case "Fahrenheit":
+        convertedValue = ((value * 1.8) - 459.67)
+        
+        case "Kelvin":
         convertedValue = value
         
         default: break
