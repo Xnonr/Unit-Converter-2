@@ -124,7 +124,6 @@
                                         </state>
                                         <connections>
                                             <action selector="conversionButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="EMS-mf-I6m"/>
-                                            <action selector="convertButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="D2z-l3-usX"/>
                                         </connections>
                                     </button>
                                 </subviews>
