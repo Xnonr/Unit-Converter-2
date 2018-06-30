@@ -71,6 +71,10 @@ class ViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDele
         super.viewDidLoad()
         
         measurementSelectionTableView.isHidden = true
+        
+        measurementConversionSelection.isHidden = true
+        inputValueField.isHidden = true
+        outputValueField.isHidden = true
     }
 
     override func didReceiveMemoryWarning()
@@ -87,6 +91,13 @@ class ViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDele
         else
         {
             animate(toogle: false)
+        }
+        
+        if measurementSelectionDropButton.currentTitle != "Measurement Selection"
+        {
+            measurementConversionSelection.isHidden = false
+            inputValueField.isHidden = false
+            outputValueField.isHidden = false
         }
     }
     
