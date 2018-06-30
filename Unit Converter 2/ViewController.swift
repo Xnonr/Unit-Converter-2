@@ -26,52 +26,15 @@ class ViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDele
     static var measurementList =
         ["Area", "Length", "Mass", "Pressure", "Speed", "Temperature", "Time", "Volume"]
     
-    static var areaTypesDatabase =
-        [["Square Kilometer","Square Meter","Square Mile","Square Yard","Square Foot","Square Inch", "Hectare","Acre"],
-         ["Square Kilometer","Square Meter","Square Mile","Square Yard","Square Foot","Square Inch", "Hectare","Acre"]]
-    
-    static var lengthTypesDatabase =
-        [["Kilometer","Meter","Centimeter","Millimeter","Micrometer","Nanometer","Mile","Yard","Foot","Inch","Nautical Mile"],
-         ["Kilometer","Meter","Centimeter","Millimeter","Micrometer","Nanometer","Mile","Yard","Foot","Inch","Nautical Mile"]]
-    
-    static var massTypesDatabase =
-        [["Metric Ton", "Kilogram", "Gram", "Milligram", "Microgram", "Imperial Ton", "US Ton", "Stone", "Pound", "Ounce"],
-         ["Metric Ton", "Kilogram", "Gram", "Milligram", "Microgram", "Imperial Ton", "US Ton", "Stone", "Pound", "Ounce"]]
-    
-    static var pressureTypesDatabase =
-        [["Atmosphere", "Bar", "Pascal", "Pound-Force Per Square Inch", "Torr"],
-         ["Atmosphere", "Bar", "Pascal", "Pound-Force Per Square Inch", "Torr"]]
-    
-    static var speedTypesDatabase =
-        [["Miles Per Hour", "Foot Per Second", "Meter Per Second", "Kilometer Per Hour", "Knot"],
-         ["Miles Per Hour", "Foot Per Second", "Meter Per Second", "Kilometer Per Hour", "Knot"]]
-    
     static var temperatureTypesDatabase =
         [["Celsius", "Fahrenheit", "Kelvin"],
          ["Celsius", "Fahrenheit", "Kelvin"]]
     
-    static var timeTypesDatabase =
-        [["Nanosecond", "Microsecond", "Millisecond", "Second", "Minute", "Hour", "Day", "Week", "Month", "Year", "Decade", "Century"],
-         ["Nanosecond", "Microsecond", "Millisecond", "Second", "Minute", "Hour", "Day", "Week", "Month", "Year", "Decade", "Century"]]
+    //Factors in same order as databases
     
-    static var volumeTypesDatabase =
-        [["US Liquid Gallon", "US Liquid Quart", "US Liquid Pint", "US Legal Cup", "US Fluid Ounce", "US Tablespoon", "US Teaspoon",
-          "Cubic Meter", "Liter", "Millimeter", "Imperial Gallon", "Imperial Quart", "Imperial Cup", "Imperial Fluid Ounce",
-          "Imperial Tablespoon", "Imperial Teaspoon", "Cubic Foot", "Cubic Inch"],
-         ["US Liquid Gallon", "US Liquid Quart", "US Liquid Pint", "US Legal Cup", "US Fluid Ounce", "US Tablespoon", "US Teaspoon",
-          "Cubic Meter", "Liter", "Millimeter", "Imperial Gallon", "Imperial Quart", "Imperial Cup", "Imperial Fluid Ounce",
-          "Imperial Tablespoon", "Imperial Teaspoon", "Cubic Foot", "Cubic Inch"]]
-    
-    static var allDatabases =
-        ["Area": areaTypesDatabase,
-         "Length": lengthTypesDatabase,
-         "Mass": massTypesDatabase,
-         "Pressure": pressureTypesDatabase,
-         "Speed": speedTypesDatabase,
-         "Temperature": temperatureTypesDatabase,
-         "Time": timeTypesDatabase,
-         "Volume": volumeTypesDatabase]
-    
+    static var areaTypesDatabase =
+        [["Square Kilometer","Square Meter","Square Mile","Square Yard","Square Foot","Square Inch", "Hectare","Acre"],
+         ["Square Kilometer","Square Meter","Square Mile","Square Yard","Square Foot","Square Inch", "Hectare","Acre"]]
     
     static var areaFactorMatrix =
         [[1, 1000000, 0.386102, 1195990, 10763900, 1550000000, 100, 247.105],
@@ -82,6 +45,10 @@ class ViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDele
          [0.00000000064516, 0.00064516, 0.0000000002491, 0.000771605, 0.00694444, 1, 0.000000064516, 0.00000015942],
          [0.01, 10000, 0.00386102, 11959.9, 107639, 15500000, 1, 2.47105],
          [0.00404686, 4046.86, 0.0015625, 4840, 43560, 6273000, 0.404686, 1]]
+    
+    static var lengthTypesDatabase =
+        [["Kilometer","Meter","Centimeter","Millimeter","Micrometer","Nanometer","Mile","Yard","Foot","Inch","Nautical Mile"],
+         ["Kilometer","Meter","Centimeter","Millimeter","Micrometer","Nanometer","Mile","Yard","Foot","Inch","Nautical Mile"]]
     
     static var lengthFactorMatrix =
         [[1, 1000, 100000, 1000000, 1000000000, 1000000000000, 0.621371, 1093.61, 3280.84, 39370.1, 0.539957],
@@ -96,6 +63,10 @@ class ViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDele
          [0.0000254, 0.0254, 2.54, 25.4, 25400, 25400000, 0.000015783, 0.0277778, 0.0833333, 1, 0.000013715],
          [1.852, 1852, 185200, 1852000, 1852000000, 1852000000000, 1.15078, 2025.37, 6076.12, 72913.4, 1]]
     
+    static var massTypesDatabase =
+        [["Metric Ton", "Kilogram", "Gram", "Milligram", "Microgram", "Imperial Ton", "US Ton", "Stone", "Pound", "Ounce"],
+         ["Metric Ton", "Kilogram", "Gram", "Milligram", "Microgram", "Imperial Ton", "US Ton", "Stone", "Pound", "Ounce"]]
+    
     static var massFactorMatrix =
         [[1, 1000, 1000000, 1000000000, 1000000000000, 0.984207, 1.10231, 157.473, 2204.62, 35274],
          [0.001, 1, 1000, 1000000, 1000000000, 0.000984207, 0.00110231, 0.157473, 2.20462, 35.274],
@@ -108,6 +79,10 @@ class ViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDele
          [0.000453592, 0.453592, 453.592, 453592, 453592000, 0.000446429, 0.0005, 0.0714286, 1, 16],
          [0.0000283495, 0.0283495, 28.3495, 28349.5, 28350000, 0.000027902, 0.00003125, 0.00446429, 0.0625, 1]]
     
+    static var pressureTypesDatabase =
+        [["Atmosphere", "Bar", "Pascal", "Pound-Force Per Square Inch", "Torr"],
+         ["Atmosphere", "Bar", "Pascal", "Pound-Force Per Square Inch", "Torr"]]
+    
     static var pressureFactorMatrix =
        [[1, 1.01325, 101325, 14.6959, 760],
         [0.986923, 1, 100000, 14.5038, 750.062],
@@ -115,12 +90,20 @@ class ViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDele
         [0.068046, 0.0689476, 6894.76, 1, 51.7149],
         [0.00131579, 0.00133322, 133.322, 0.0193368, 1]]
     
+    static var speedTypesDatabase =
+        [["Miles Per Hour", "Foot Per Second", "Meter Per Second", "Kilometer Per Hour", "Knot"],
+         ["Miles Per Hour", "Foot Per Second", "Meter Per Second", "Kilometer Per Hour", "Knot"]]
+    
     static var speedFactorMatrix =
         [[1, 1.46667, 0.44704, 1.60934, 0.868976],
          [0.681818, 1, 0.3048, 1.09728, 0.592484],
          [2.23694, 3.28084, 1, 3.6, 1.94384],
          [0.621371, 0.911344, 0.277778, 1, 0.539957],
          [1.15078, 1.68781, 0.514444, 1.852, 1]]
+    
+    static var timeTypesDatabase =
+        [["Nanosecond", "Microsecond", "Millisecond", "Second", "Minute", "Hour", "Day", "Week", "Month", "Year", "Decade", "Century"],
+         ["Nanosecond", "Microsecond", "Millisecond", "Second", "Minute", "Hour", "Day", "Week", "Month", "Year", "Decade", "Century"]]
     
     static var timeFactorMatrix =
         [[],
@@ -135,6 +118,14 @@ class ViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDele
          [],
          [],
          []]
+    
+    static var volumeTypesDatabase =
+        [["US Liquid Gallon", "US Liquid Quart", "US Liquid Pint", "US Legal Cup", "US Fluid Ounce", "US Tablespoon", "US Teaspoon",
+          "Cubic Meter", "Liter", "Millimeter", "Imperial Gallon", "Imperial Quart", "Imperial Cup", "Imperial Fluid Ounce",
+          "Imperial Tablespoon", "Imperial Teaspoon", "Cubic Foot", "Cubic Inch"],
+         ["US Liquid Gallon", "US Liquid Quart", "US Liquid Pint", "US Legal Cup", "US Fluid Ounce", "US Tablespoon", "US Teaspoon",
+          "Cubic Meter", "Liter", "Millimeter", "Imperial Gallon", "Imperial Quart", "Imperial Cup", "Imperial Fluid Ounce",
+          "Imperial Tablespoon", "Imperial Teaspoon", "Cubic Foot", "Cubic Inch"]]
     
     static var volumeFactorMatrix =
         [[1, 4, 8, 15.7725, 128, 256, 768, 0.00378541, 3.78541, 3785.41, 0.832674, 3.3307, 6.66139, 13.3228, 133.228, 213.165, 639.494, 0.133681, 231],
@@ -156,6 +147,16 @@ class ViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDele
          [0.00156374, 0.00625495, 0.0125099, 0.0246641, 0.200158, 0.400317, 1.20095, 0.0000059194, 0.00591939, 5.91939, 0.00130208, 0.00520834, 0.0104167, 0.0208333, 0.208333, 0.333333, 1, 0.000209041, 0.361223],
          [7.48052, 29.9221, 59.8442, 117.987, 957.506, 1915.01, 5745.04, 0.0283168, 28.3168, 28316.8, 6.22884, 24.9153, 49.8307, 99.6614, 996.614, 1594.58, 4783.74, 1, 1728],
          [0.004329, 0.017316, 0.034632, 0.0682794, 0.554113, 1.10823, 3.32468, 0.000016387, 0.0163871, 16.3871, 0.00360465, 0.0144186, 0.0288372, 0.0576744, 0.576744, 0.92279, 2.76837, 0.000578704, 1]]
+    
+    static var allDatabases =
+        ["Area": areaTypesDatabase,
+         "Length": lengthTypesDatabase,
+         "Mass": massTypesDatabase,
+         "Pressure": pressureTypesDatabase,
+         "Speed": speedTypesDatabase,
+         "Temperature": temperatureTypesDatabase,
+         "Time": timeTypesDatabase,
+         "Volume": volumeTypesDatabase]
     
     static var allFactorMatrices =
         ["Area": areaFactorMatrix,
