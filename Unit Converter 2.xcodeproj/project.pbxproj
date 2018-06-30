@@ -13,9 +13,8 @@
 		8719E31820D4794A00B5B029 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8719E31720D4794A00B5B029 /* Assets.xcassets */; };
 		8719E31B20D4794A00B5B029 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8719E31920D4794A00B5B029 /* LaunchScreen.storyboard */; };
 		8719E32620D4794A00B5B029 /* Unit_Converter_2Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8719E32520D4794A00B5B029 /* Unit_Converter_2Tests.swift */; };
-		8719E33120D4794A00B5B029 /* Unit_Converter_2UITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8719E33020D4794A00B5B029 /* Unit_Converter_2UITests.swift */; };
 		873F027720E72619009D6128 /* Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 873F027620E72619009D6128 /* Utilities.swift */; };
-		87E1BF9720E8205700F2B181 /* Utilities 2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87E1BF9620E8205700F2B181 /* Utilities 2.swift */; };
+		87E1BF9720E8205700F2B181 /* Utilities2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87E1BF9620E8205700F2B181 /* Utilities2.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,10 +46,8 @@
 		8719E32520D4794A00B5B029 /* Unit_Converter_2Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Unit_Converter_2Tests.swift; sourceTree = "<group>"; };
 		8719E32720D4794A00B5B029 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8719E32C20D4794A00B5B029 /* Unit Converter 2UITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Unit Converter 2UITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
-		8719E33020D4794A00B5B029 /* Unit_Converter_2UITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Unit_Converter_2UITests.swift; sourceTree = "<group>"; };
-		8719E33220D4794A00B5B029 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		873F027620E72619009D6128 /* Utilities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utilities.swift; sourceTree = "<group>"; };
-		87E1BF9620E8205700F2B181 /* Utilities 2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Utilities 2.swift"; sourceTree = "<group>"; };
+		87E1BF9620E8205700F2B181 /* Utilities2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utilities2.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -83,7 +80,6 @@
 			children = (
 				8719E30F20D4794900B5B029 /* Unit Converter 2 */,
 				8719E32420D4794A00B5B029 /* Unit Converter 2Tests */,
-				8719E32F20D4794A00B5B029 /* Unit Converter 2UITests */,
 				8719E30E20D4794900B5B029 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -108,7 +104,7 @@
 				8719E31920D4794A00B5B029 /* LaunchScreen.storyboard */,
 				8719E31C20D4794A00B5B029 /* Info.plist */,
 				873F027620E72619009D6128 /* Utilities.swift */,
-				87E1BF9620E8205700F2B181 /* Utilities 2.swift */,
+				87E1BF9620E8205700F2B181 /* Utilities2.swift */,
 			);
 			path = "Unit Converter 2";
 			sourceTree = "<group>";
@@ -120,15 +116,6 @@
 				8719E32720D4794A00B5B029 /* Info.plist */,
 			);
 			path = "Unit Converter 2Tests";
-			sourceTree = "<group>";
-		};
-		8719E32F20D4794A00B5B029 /* Unit Converter 2UITests */ = {
-			isa = PBXGroup;
-			children = (
-				8719E33020D4794A00B5B029 /* Unit_Converter_2UITests.swift */,
-				8719E33220D4794A00B5B029 /* Info.plist */,
-			);
-			path = "Unit Converter 2UITests";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -264,7 +251,7 @@
 			files = (
 				873F027720E72619009D6128 /* Utilities.swift in Sources */,
 				8719E31320D4794900B5B029 /* ViewController.swift in Sources */,
-				87E1BF9720E8205700F2B181 /* Utilities 2.swift in Sources */,
+				87E1BF9720E8205700F2B181 /* Utilities2.swift in Sources */,
 				8719E31120D4794900B5B029 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -281,7 +268,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8719E33120D4794A00B5B029 /* Unit_Converter_2UITests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

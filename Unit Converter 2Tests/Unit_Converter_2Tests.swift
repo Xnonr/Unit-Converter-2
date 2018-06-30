@@ -21,7 +21,18 @@ class Unit_Converter_2Tests: XCTestCase {
         super.tearDown()
     }
     
-    func testExample() {
+    func testAreaFactorMatrix()
+    {
+        let max: Int = (Matrices.areaFactorMatrix.count - 1)
+        
+        for i in 0...max
+        {
+            assert(Matrices.areaFactorMatrix[i][i] == 1)
+        }
+    }
+    
+    func testLengthFactorMatrix()
+    {
         // This is an example of a functional test case.
         // Use XCTAssert and related functions to verify your tests produce the correct results.
     }

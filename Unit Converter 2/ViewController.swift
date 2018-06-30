@@ -15,7 +15,9 @@ class ViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDele
     
     @IBAction func conversionButton(_ sender: Any)
     {
-        outputValueField.text = inputValueField.text
+        let inputValue = Double(inputValueField.text ?? "") ?? 0.0
+        let outputValue: Double = Matrices.conversion(measurementType: currentMeasurement, from: 0, to: 0, inputValue: inputValue)
+        outputValueField.text = String(outputValue)
     }
     
     @IBOutlet weak var measurementSelectionDropButton: UIButton!
@@ -25,45 +27,26 @@ class ViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDele
     static var measurementList =
         ["Area", "Length", "Mass", "Pressure", "Speed", "Temperature", "Time", "Volume"]
     
-    static var allDatabases =
-        ["Area": Matrices.areaTypesDatabase,
-         "Length": Matrices.lengthTypesDatabase,
-         "Mass": Matrices.massTypesDatabase,
-         "Pressure": Matrices.pressureTypesDatabase,
-         "Speed": Matrices.speedTypesDatabase,
-         "Temperature": Matrices.temperatureTypesDatabase,
-         "Time": Matrices.timeTypesDatabase,
-         "Volume": Matrices.volumeTypesDatabase]
-    
-    static var allFactorMatrices =
-        ["Area": Matrices.areaFactorMatrix,
-         "Length": Matrices.lengthFactorMatrix,
-         "Mass": Matrices.massFactorMatrix,
-         "Pressure": Matrices.pressureFactorMatrix,
-         "Speed": Matrices.speedFactorMatrix,
-         "Time": Matrices.timeFactorMatrix,
-         "Volume": Matrices.volumeFactorMatrix]
-    
     var currentMeasurement = "Length"
     
     func numberOfComponents(in pickerView: UIPickerView) -> Int
     {
-        return ViewController.allDatabases[currentMeasurement]!.count //2
+        return Matrices.allDatabases[currentMeasurement]!.count //2
     }
     
     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int
     {
-        return ViewController.allDatabases[currentMeasurement]![component].count
+        return Matrices.allDatabases[currentMeasurement]![component].count
     }
     
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String?
     {
         var localrow = row
-        if (row >= ViewController.allDatabases[currentMeasurement]![component].count)
+        if (row >= Matrices.allDatabases[currentMeasurement]![component].count)
         {
            localrow = 0
         }
-        return ViewController.allDatabases[currentMeasurement]?[component][localrow]
+        return Matrices.allDatabases[currentMeasurement]?[component][localrow]
     }
     
     /*func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int)
