@@ -28,6 +28,8 @@ class Unit_Converter_2Tests: XCTestCase {
         for i in 0...max
         {
             assert(Matrices.areaFactorMatrix[i][i] == 1)
+            
+            assert(Matrices.areaFactorMatrix[i][i + 1] * Matrices.areaFactorMatrix[i + 1][i] == 1)
         }
     }
     
