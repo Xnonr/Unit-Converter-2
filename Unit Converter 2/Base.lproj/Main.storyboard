@@ -141,6 +141,7 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <connections>
+                        <outlet property="conversionButtonSelection" destination="b1d-td-WCB" id="LuD-vl-p3C"/>
                         <outlet property="inputValueField" destination="Waa-b8-X7M" id="rAS-2v-APR"/>
                         <outlet property="measurementConversionSelection" destination="hMk-P6-ZJ9" id="T50-j9-Vdh"/>
                         <outlet property="measurementSelectionDropButton" destination="02a-y3-ldB" id="04h-qs-K2m"/>

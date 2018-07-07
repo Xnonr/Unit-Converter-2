@@ -33,8 +33,62 @@ class Unit_Converter_2Tests: XCTestCase {
     
     func testLengthFactorMatrix()
     {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
+        let max: Int = (Matrices.lengthFactorMatrix.count - 1)
+        
+        for i in 0...max
+        {
+            assert(Matrices.lengthFactorMatrix[i][i] == 1)
+        }
+    }
+    
+    func testMassLengthFactorMatrix()
+    {
+        let max: Int = (Matrices.massFactorMatrix.count - 1)
+        
+        for i in 0...max
+        {
+            assert(Matrices.massFactorMatrix[i][i] == 1)
+        }
+    }
+    
+    func testPressureFactorMatrix()
+    {
+        let max: Int = (Matrices.pressureFactorMatrix.count - 1)
+        
+        for i in 0...max
+        {
+            assert(Matrices.pressureFactorMatrix[i][i] == 1)
+        }
+    }
+    
+    func testSpeedFactorMatrix()
+    {
+        let max: Int = (Matrices.speedFactorMatrix.count - 1)
+        
+        for i in 0...max
+        {
+            assert(Matrices.speedFactorMatrix[i][i] == 1)
+        }
+    }
+    
+    func testTimeFactorMatrix()
+    {
+        let max: Int = (Matrices.timeFactorMatrix.count - 1)
+        
+        for i in 0...max
+        {
+            assert(Matrices.timeFactorMatrix[i][i] == 1)
+        }
+    }
+    
+    func testVolumeFactorMatrix()
+    {
+        let max: Int = (Matrices.volumeFactorMatrix.count - 1)
+        
+        for i in 0...max
+        {
+            assert(Matrices.volumeFactorMatrix[i][i] == 1)
+        }
     }
     
     func testPerformanceExample() {

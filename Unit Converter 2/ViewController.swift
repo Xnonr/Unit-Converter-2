@@ -12,6 +12,7 @@ class ViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDele
 {
     @IBOutlet var inputValueField: UITextField!
     @IBOutlet var outputValueField: UITextField!
+    @IBOutlet weak var conversionButtonSelection: UIButton!
     
     @IBAction func conversionButton(_ sender: Any)
     {
@@ -75,6 +76,7 @@ class ViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDele
         measurementConversionSelection.isHidden = true
         inputValueField.isHidden = true
         outputValueField.isHidden = true
+        conversionButtonSelection.isHidden = true
     }
 
     override func didReceiveMemoryWarning()
@@ -91,13 +93,6 @@ class ViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDele
         else
         {
             animate(toogle: false)
-        }
-        
-        if measurementSelectionDropButton.currentTitle != "Measurement Selection"
-        {
-            measurementConversionSelection.isHidden = false
-            inputValueField.isHidden = false
-            outputValueField.isHidden = false
         }
     }
     
@@ -139,6 +134,10 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource
         measurementSelectionDropButton.setTitle(ViewController.measurementList[indexPath.row], for: .normal)
         currentMeasurement = ViewController.measurementList[indexPath.row]
         animate(toogle: false)
-        //ViewController.component[0].ViewDidLoad
+        
+        measurementConversionSelection.isHidden = false
+        inputValueField.isHidden = false
+        outputValueField.isHidden = false
+        conversionButtonSelection.isHidden = false
     }
 }
