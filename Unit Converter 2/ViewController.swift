@@ -46,10 +46,12 @@ class ViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDele
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String?
     {
         var localrow = row
+        
         if (row >= Matrices.allDatabases[currentMeasurement]![component].count)
         {
            localrow = 0
         }
+        
         return Matrices.allDatabases[currentMeasurement]?[component][localrow]
     }
     
@@ -90,6 +92,7 @@ class ViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDele
         {
             animate(toogle: true)
         }
+            
         else
         {
             animate(toogle: false)
@@ -139,5 +142,7 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource
         inputValueField.isHidden = false
         outputValueField.isHidden = false
         conversionButtonSelection.isHidden = false
+        
+        self.measurementConversionSelection.reloadAllComponents()
     }
 }
