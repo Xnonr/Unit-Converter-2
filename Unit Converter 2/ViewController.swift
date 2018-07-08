@@ -17,17 +17,17 @@ class ViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDele
     {
         if(notationTypeButton.selectedSegmentIndex == 0)
         {
-            
+            notationType = "Decimal"
         }
         
         else if(notationTypeButton.selectedSegmentIndex == 1)
         {
-            
+            notationType = "Scientific"
         }
         
         else
         {
-            
+            notationType = "Fraction"
         }
     }
     
@@ -117,10 +117,11 @@ class ViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDele
     
     var currentMeasurement = "Length"
     
-    var fromValue: Int = 0
-    var toValue: Int = 0
+    var notationType: String = "Decimal"
     var roundOrNot: Bool = false
     var roundingValue: Double = 1.0
+    var fromValue: Int = 0
+    var toValue: Int = 0
     
     func numberOfComponents(in pickerView: UIPickerView) -> Int
     {
