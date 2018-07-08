@@ -102,7 +102,7 @@
                                     <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" distribution="fillEqually" spacing="1" translatesAutoresizingMaskIntoConstraints="NO" id="793-gl-d4f">
                                         <rect key="frame" x="0.0" y="154" width="315" height="29"/>
                                         <subviews>
-                                            <stepper opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" ambiguous="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" wraps="YES" maximumValue="6" translatesAutoresizingMaskIntoConstraints="NO" id="1Qh-LG-oG5">
+                                            <stepper opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" ambiguous="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" wraps="YES" maximumValue="7" translatesAutoresizingMaskIntoConstraints="NO" id="1Qh-LG-oG5">
                                                 <rect key="frame" x="0.0" y="0.0" width="94" height="29"/>
                                                 <connections>
                                                     <action selector="roundingValueChanged:" destination="BYZ-38-t0r" eventType="valueChanged" id="Zov-dp-E6y"/>

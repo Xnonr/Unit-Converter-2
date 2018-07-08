@@ -31,56 +31,80 @@ class ViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDele
         }
     }
     
+    //Rounding
     @IBOutlet weak var roundingValueButton: UIStepper!
+    
     @IBAction func roundingValueChanged(_ sender: UIStepper)
     {
         if(roundingValueButton.value == 0)
         {
             roundingValueField.text = "0.001"
+            roundOrNot = true
+            roundingValue = 1000.0
         }
             
         else if(roundingValueButton.value == 1)
         {
             roundingValueField.text = "0.01"
+            roundOrNot = true
+            roundingValue = 100.0
         }
             
         else if(roundingValueButton.value == 2)
         {
             roundingValueField.text = "0.1"
+            roundOrNot = true
+            roundingValue = 10.0
         }
             
         else if(roundingValueButton.value == 3)
         {
             roundingValueField.text = "1"
+            roundOrNot = true
+            roundingValue = 1.0
         }
             
         else if(roundingValueButton.value == 4)
         {
             roundingValueField.text = "10"
+            roundOrNot = true
+            roundingValue = 0.1
         }
             
         else if(roundingValueButton.value == 5)
         {
             roundingValueField.text = "100"
+            roundOrNot = true
+            roundingValue = 0.01
         }
             
-        else
+        else if(roundingValueButton.value == 6)
         {
             roundingValueField.text = "1000"
+            roundOrNot = true
+            roundingValue = 0.001
+        }
+        
+        else
+        {
+            roundingValueField.text = "No Rounding"
+            roundOrNot = false
         }
     }
     
     @IBOutlet weak var roundingValueField: UITextField!
     
+    //Input & Output
     @IBOutlet var inputValueField: UITextField!
     @IBOutlet var outputValueField: UITextField!
     
+    //Conversion Button
     @IBOutlet weak var conversionButtonSelection: UIButton!
     
     @IBAction func conversionButton(_ sender: Any)
     {
         let inputValue = Double(inputValueField.text ?? "") ?? 0.0
-        let outputValue: Double = Matrices.conversion(measurementType: currentMeasurement, from: fromValue, to: toValue, inputValue: inputValue)
+        let outputValue: Double = Matrices.conversion(measurementType: currentMeasurement, from: fromValue, to: toValue, inputValue: inputValue, toRound: roundOrNot, roundTo: roundingValue)
         outputValueField.text = String(outputValue)
     }
     
@@ -95,6 +119,8 @@ class ViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDele
     
     var fromValue: Int = 0
     var toValue: Int = 0
+    var roundOrNot: Bool = false
+    var roundingValue: Double = 1.0
     
     func numberOfComponents(in pickerView: UIPickerView) -> Int
     {
