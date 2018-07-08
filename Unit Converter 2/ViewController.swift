@@ -8,10 +8,8 @@
 
 import UIKit
 
-class ViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate
+class ViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate, UITextFieldDelegate
 {
-    
-    
     @IBOutlet weak var notationTypeButton: UISegmentedControl!
     @IBAction func notationTypeChanged(_ sender: UISegmentedControl)
     {
@@ -172,6 +170,33 @@ class ViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDele
         inputValueField.isHidden = true
         outputValueField.isHidden = true
         conversionButtonSelection.isHidden = true
+        
+        self.view.backgroundColor = UIColor.black
+        
+        self.inputValueField.delegate = self
+        //self.inputValueField.layer.borderColor = UIColor.white.cgColor
+        //self.inputValueField.layer.borderWidth = CGFloat(Float(1.0))
+        
+        self.outputValueField.delegate = self
+        //self.outputValueField.layer.borderColor = UIColor.white.cgColor
+        //self.outputValueField.layer.borderWidth = CGFloat(Float(1.0))
+        
+        self.roundingValueField.delegate = self
+        //self.roundingValueField.layer.borderColor = UIColor.white.cgColor
+        //self.roundingValueField.layer.borderWidth = CGFloat(Float(1.0))
+    }
+    
+    //Hide keyboard when user touches outside keyboard
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?)
+    {
+        self.view.endEditing(true)
+    }
+    
+    //Hide keyboard when user presses return key
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool
+    {
+        textField.resignFirstResponder()
+        return true
     }
 
     override func didReceiveMemoryWarning()
