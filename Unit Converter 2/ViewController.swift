@@ -171,7 +171,7 @@ class ViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDele
         outputValueField.isHidden = true
         conversionButtonSelection.isHidden = true
         
-        self.view.backgroundColor = UIColor.black
+        //self.view.backgroundColor = UIColor.black
         
         self.inputValueField.delegate = self
         //self.inputValueField.layer.borderColor = UIColor.white.cgColor
@@ -247,6 +247,7 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource
     {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
         cell.textLabel?.text = ViewController.measurementList[indexPath.row]
+        //cell.textLabel?.font = UIFont.systemFont(ofSize: 15)
         return cell
     }
     
