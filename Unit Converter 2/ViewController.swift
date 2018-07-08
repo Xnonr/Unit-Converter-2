@@ -10,8 +10,71 @@ import UIKit
 
 class ViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate
 {
+    
+    
+    @IBOutlet weak var notationTypeButton: UISegmentedControl!
+    @IBAction func notationTypeChanged(_ sender: UISegmentedControl)
+    {
+        if(notationTypeButton.selectedSegmentIndex == 0)
+        {
+            
+        }
+        
+        else if(notationTypeButton.selectedSegmentIndex == 1)
+        {
+            
+        }
+        
+        else
+        {
+            
+        }
+    }
+    
+    @IBOutlet weak var roundingValueButton: UIStepper!
+    @IBAction func roundingValueChanged(_ sender: UIStepper)
+    {
+        if(roundingValueButton.value == 0)
+        {
+            roundingValueField.text = "0.001"
+        }
+            
+        else if(roundingValueButton.value == 1)
+        {
+            roundingValueField.text = "0.01"
+        }
+            
+        else if(roundingValueButton.value == 2)
+        {
+            roundingValueField.text = "0.1"
+        }
+            
+        else if(roundingValueButton.value == 3)
+        {
+            roundingValueField.text = "1"
+        }
+            
+        else if(roundingValueButton.value == 4)
+        {
+            roundingValueField.text = "10"
+        }
+            
+        else if(roundingValueButton.value == 5)
+        {
+            roundingValueField.text = "100"
+        }
+            
+        else
+        {
+            roundingValueField.text = "1000"
+        }
+    }
+    
+    @IBOutlet weak var roundingValueField: UITextField!
+    
     @IBOutlet var inputValueField: UITextField!
     @IBOutlet var outputValueField: UITextField!
+    
     @IBOutlet weak var conversionButtonSelection: UIButton!
     
     @IBAction func conversionButton(_ sender: Any)
@@ -76,6 +139,9 @@ class ViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDele
         measurementSelectionTableView.isHidden = true
         
         measurementConversionSelection.isHidden = true
+        notationTypeButton.isHidden = true
+        roundingValueButton.isHidden = true
+        roundingValueField.isHidden = true
         inputValueField.isHidden = true
         outputValueField.isHidden = true
         conversionButtonSelection.isHidden = true
@@ -139,6 +205,9 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource
         animate(toogle: false)
         
         measurementConversionSelection.isHidden = false
+        notationTypeButton.isHidden = false
+        roundingValueButton.isHidden = false
+        roundingValueField.isHidden = false
         inputValueField.isHidden = false
         outputValueField.isHidden = false
         conversionButtonSelection.isHidden = false

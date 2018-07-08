@@ -76,23 +76,51 @@
                                     <constraint firstItem="eGn-qb-Voe" firstAttribute="top" secondItem="02a-y3-ldB" secondAttribute="bottom" constant="1" id="bn5-qH-I8r"/>
                                 </constraints>
                             </stackView>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="1" translatesAutoresizingMaskIntoConstraints="NO" id="WwF-Le-pAo">
-                                <rect key="frame" x="30" y="221" width="315" height="215"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" axis="vertical" spacing="3" translatesAutoresizingMaskIntoConstraints="NO" id="f9e-5v-M8o">
+                                <rect key="frame" x="30" y="221" width="315" height="252"/>
                                 <subviews>
                                     <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hMk-P6-ZJ9">
-                                        <rect key="frame" x="0.0" y="0.0" width="315" height="150"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="315" height="120"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="150" id="QYM-gv-HZk"/>
+                                            <constraint firstAttribute="height" constant="120" id="QYM-gv-HZk"/>
                                         </constraints>
                                         <connections>
                                             <outlet property="delegate" destination="BYZ-38-t0r" id="0G5-l8-pa3"/>
                                         </connections>
                                     </pickerView>
-                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="hpk-fd-Pmz">
-                                        <rect key="frame" x="0.0" y="151" width="315" height="30"/>
+                                    <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="WqD-P2-0qg">
+                                        <rect key="frame" x="0.0" y="123" width="315" height="29"/>
+                                        <segments>
+                                            <segment title="Decimal"/>
+                                            <segment title="Scientific"/>
+                                            <segment title="Fraction"/>
+                                        </segments>
+                                        <connections>
+                                            <action selector="notationTypeChanged:" destination="BYZ-38-t0r" eventType="valueChanged" id="DEp-as-6nW"/>
+                                        </connections>
+                                    </segmentedControl>
+                                    <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" distribution="fillEqually" spacing="1" translatesAutoresizingMaskIntoConstraints="NO" id="793-gl-d4f">
+                                        <rect key="frame" x="0.0" y="154" width="315" height="29"/>
                                         <subviews>
-                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Waa-b8-X7M">
-                                                <rect key="frame" x="0.0" y="0.0" width="157.5" height="30"/>
+                                            <stepper opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" ambiguous="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" wraps="YES" maximumValue="6" translatesAutoresizingMaskIntoConstraints="NO" id="1Qh-LG-oG5">
+                                                <rect key="frame" x="0.0" y="0.0" width="94" height="29"/>
+                                                <connections>
+                                                    <action selector="roundingValueChanged:" destination="BYZ-38-t0r" eventType="valueChanged" id="Zov-dp-E6y"/>
+                                                </connections>
+                                            </stepper>
+                                            <textField opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Round To Nearest" textAlignment="center" minimumFontSize="15" translatesAutoresizingMaskIntoConstraints="NO" id="BJ2-qh-HG1">
+                                                <rect key="frame" x="158" y="0.0" width="157" height="29"/>
+                                                <nil key="textColor"/>
+                                                <fontDescription key="fontDescription" name="Copperplate" family="Copperplate" pointSize="15"/>
+                                                <textInputTraits key="textInputTraits" keyboardType="numbersAndPunctuation"/>
+                                            </textField>
+                                        </subviews>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" distribution="fillEqually" spacing="1" translatesAutoresizingMaskIntoConstraints="NO" id="hpk-fd-Pmz">
+                                        <rect key="frame" x="0.0" y="186" width="315" height="30"/>
+                                        <subviews>
+                                            <textField opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Input" textAlignment="center" minimumFontSize="15" translatesAutoresizingMaskIntoConstraints="NO" id="Waa-b8-X7M">
+                                                <rect key="frame" x="0.0" y="0.0" width="157" height="30"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="30" id="T7D-cu-q2x"/>
                                                 </constraints>
@@ -100,8 +128,8 @@
                                                 <fontDescription key="fontDescription" name="Copperplate" family="Copperplate" pointSize="15"/>
                                                 <textInputTraits key="textInputTraits" keyboardType="numbersAndPunctuation"/>
                                             </textField>
-                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="2Z7-t8-zlk">
-                                                <rect key="frame" x="157.5" y="0.0" width="157.5" height="30"/>
+                                            <textField opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Output" textAlignment="center" minimumFontSize="15" translatesAutoresizingMaskIntoConstraints="NO" id="2Z7-t8-zlk">
+                                                <rect key="frame" x="158" y="0.0" width="157" height="30"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="30" id="bVN-SV-g3y"/>
                                                 </constraints>
@@ -114,8 +142,8 @@
                                             <constraint firstAttribute="height" constant="30" id="Pkg-Yg-AhZ"/>
                                         </constraints>
                                     </stackView>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="b1d-td-WCB">
-                                        <rect key="frame" x="0.0" y="182" width="315" height="33"/>
+                                    <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="b1d-td-WCB">
+                                        <rect key="frame" x="0.0" y="219" width="315" height="33"/>
                                         <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <fontDescription key="fontDescription" name="Copperplate" family="Copperplate" pointSize="20"/>
                                         <state key="normal" title="Convert">
@@ -131,12 +159,12 @@
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="WwF-Le-pAo" secondAttribute="trailing" constant="30" id="SJh-73-iw6"/>
+                            <constraint firstItem="f9e-5v-M8o" firstAttribute="top" secondItem="Vgn-bf-Sv8" secondAttribute="bottom" constant="10" id="Qb3-6Z-8eE"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Vgn-bf-Sv8" secondAttribute="trailing" constant="30" id="UTq-Iq-v1f"/>
                             <constraint firstItem="Vgn-bf-Sv8" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="10" id="YBW-rQ-ggp"/>
                             <constraint firstItem="Vgn-bf-Sv8" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="30" id="hAo-pJ-Nmh"/>
-                            <constraint firstItem="WwF-Le-pAo" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="30" id="p3u-eA-yKa"/>
-                            <constraint firstItem="WwF-Le-pAo" firstAttribute="top" secondItem="Vgn-bf-Sv8" secondAttribute="bottom" constant="10" id="sF2-Le-ks8"/>
+                            <constraint firstItem="f9e-5v-M8o" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="30" id="oes-Jf-7rh"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="f9e-5v-M8o" secondAttribute="trailing" constant="30" id="yKd-nT-5ns"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
@@ -146,7 +174,10 @@
                         <outlet property="measurementConversionSelection" destination="hMk-P6-ZJ9" id="T50-j9-Vdh"/>
                         <outlet property="measurementSelectionDropButton" destination="02a-y3-ldB" id="04h-qs-K2m"/>
                         <outlet property="measurementSelectionTableView" destination="eGn-qb-Voe" id="s8E-Yu-4ac"/>
+                        <outlet property="notationTypeButton" destination="WqD-P2-0qg" id="fu9-rV-efC"/>
                         <outlet property="outputValueField" destination="2Z7-t8-zlk" id="MsW-9O-xRP"/>
+                        <outlet property="roundingValueButton" destination="1Qh-LG-oG5" id="ntF-6f-4zE"/>
+                        <outlet property="roundingValueField" destination="BJ2-qh-HG1" id="mbg-EO-ETN"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
