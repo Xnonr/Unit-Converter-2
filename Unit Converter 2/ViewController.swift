@@ -10,116 +10,26 @@ import UIKit
 
 class ViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate, UITextFieldDelegate
 {
-    @IBOutlet weak var notationTypeButton: UISegmentedControl!
-    @IBAction func notationTypeChanged(_ sender: UISegmentedControl)
-    {
-        if(notationTypeButton.selectedSegmentIndex == 0)
-        {
-            notationType = "Decimal"
-        }
-        
-        else if(notationTypeButton.selectedSegmentIndex == 1)
-        {
-            notationType = "Scientific"
-        }
-        
-        else
-        {
-            notationType = "Fraction"
-        }
-    }
-    
-    //Rounding
-    @IBOutlet weak var roundingValueButton: UIStepper!
-    
-    @IBAction func roundingValueChanged(_ sender: UIStepper)
-    {
-        if(roundingValueButton.value == 0)
-        {
-            roundingValueField.text = "0.001"
-            roundOrNot = true
-            roundingValue = 1000.0
-        }
-            
-        else if(roundingValueButton.value == 1)
-        {
-            roundingValueField.text = "0.01"
-            roundOrNot = true
-            roundingValue = 100.0
-        }
-            
-        else if(roundingValueButton.value == 2)
-        {
-            roundingValueField.text = "0.1"
-            roundOrNot = true
-            roundingValue = 10.0
-        }
-            
-        else if(roundingValueButton.value == 3)
-        {
-            roundingValueField.text = "1"
-            roundOrNot = true
-            roundingValue = 1.0
-        }
-            
-        else if(roundingValueButton.value == 4)
-        {
-            roundingValueField.text = "10"
-            roundOrNot = true
-            roundingValue = 0.1
-        }
-            
-        else if(roundingValueButton.value == 5)
-        {
-            roundingValueField.text = "100"
-            roundOrNot = true
-            roundingValue = 0.01
-        }
-            
-        else if(roundingValueButton.value == 6)
-        {
-            roundingValueField.text = "1000"
-            roundOrNot = true
-            roundingValue = 0.001
-        }
-        
-        else
-        {
-            roundingValueField.text = "No Rounding"
-            roundOrNot = false
-        }
-    }
-    
-    @IBOutlet weak var roundingValueField: UITextField!
-    
-    //Input & Output
-    @IBOutlet var inputValueField: UITextField!
-    @IBOutlet var outputValueField: UITextField!
-    
-    //Conversion Button
-    @IBOutlet weak var conversionButtonSelection: UIButton!
-    
-    @IBAction func conversionButton(_ sender: Any)
-    {
-        let inputValue = Double(inputValueField.text ?? "") ?? 0.0
-        let outputValue: Double = Matrices.conversion(measurementType: currentMeasurement, from: fromValue, to: toValue, inputValue: inputValue, toRound: roundOrNot, roundTo: roundingValue)
-        outputValueField.text = String(outputValue)
-    }
-    
+    //Measurement Selection
     @IBOutlet weak var measurementSelectionDropButton: UIButton!
     @IBOutlet weak var measurementSelectionTableView: UITableView!
-    @IBOutlet weak var measurementConversionSelection: UIPickerView!
+    @IBAction func clickMeasurementSelectionDropButton(_ sender: Any)
+    {
+        if measurementSelectionTableView.isHidden
+        {
+            animate(toogle: true)
+        }
+        else
+        {
+            animate(toogle: false)
+        }
+    }
     
-    static var measurementList =
-        ["Area", "Length", "Mass", "Pressure", "Speed", "Temperature", "Time", "Volume"]
-    
+    static var measurementList = ["Area", "Length", "Mass", "Pressure", "Speed", "Temperature", "Time", "Volume"]
     var currentMeasurement = "Length"
     
-    var notationType: String = "Decimal"
-    var roundOrNot: Bool = false
-    var roundingValue: Double = 1.0
-    var fromValue: Int = 0
-    var toValue: Int = 0
+    //Measurement Conversion Selection
+    @IBOutlet weak var measurementConversionSelection: UIPickerView!
     
     func numberOfComponents(in pickerView: UIPickerView) -> Int
     {
@@ -137,7 +47,7 @@ class ViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDele
         
         if (row >= Matrices.allDatabases[currentMeasurement]![component].count)
         {
-           localrow = 0
+            localrow = 0
         }
         
         return Matrices.allDatabases[currentMeasurement]?[component][localrow]
@@ -149,14 +59,108 @@ class ViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDele
         {
             case 0:
             fromValue = row
-                
+            
             case 1:
             toValue = row
-                
+            
             default:break
         }
     }
     
+    var fromValue: Int = 0
+    var toValue: Int = 0
+    
+    //Notation Type
+    @IBOutlet weak var notationTypeButton: UISegmentedControl!
+    @IBAction func notationTypeChanged(_ sender: UISegmentedControl)
+    {
+        if(notationTypeButton.selectedSegmentIndex == 0)
+        {
+            notationType = "Decimal"
+        }
+        else if(notationTypeButton.selectedSegmentIndex == 1)
+        {
+            notationType = "Scientific"
+        }
+        else
+        {
+            notationType = "Fraction"
+        }
+    }
+    
+    var notationType: String = "Decimal"
+    
+    //Rounding
+    @IBOutlet weak var roundingValueButton: UIStepper!
+    @IBAction func roundingValueChanged(_ sender: UIStepper)
+    {
+        if(roundingValueButton.value == 0)
+        {
+            roundingValueField.text = "0.001"
+            roundOrNot = true
+            roundingValue = 1000.0
+        }
+        else if(roundingValueButton.value == 1)
+        {
+            roundingValueField.text = "0.01"
+            roundOrNot = true
+            roundingValue = 100.0
+        }
+        else if(roundingValueButton.value == 2)
+        {
+            roundingValueField.text = "0.1"
+            roundOrNot = true
+            roundingValue = 10.0
+        }
+        else if(roundingValueButton.value == 3)
+        {
+            roundingValueField.text = "1"
+            roundOrNot = true
+            roundingValue = 1.0
+        }
+        else if(roundingValueButton.value == 4)
+        {
+            roundingValueField.text = "10"
+            roundOrNot = true
+            roundingValue = 0.1
+        }
+        else if(roundingValueButton.value == 5)
+        {
+            roundingValueField.text = "100"
+            roundOrNot = true
+            roundingValue = 0.01
+        }
+        else if(roundingValueButton.value == 6)
+        {
+            roundingValueField.text = "1000"
+            roundOrNot = true
+            roundingValue = 0.001
+        }
+        else
+        {
+            roundingValueField.text = "No Rounding"
+            roundOrNot = false
+        }
+    }
+    @IBOutlet weak var roundingValueField: UITextField!
+    
+    var roundOrNot: Bool = false
+    var roundingValue: Double = 1.0
+    
+    //Input & Output Value Fields
+    @IBOutlet var inputValueField: UITextField!
+    @IBOutlet var outputValueField: UITextField!
+    
+    //Conversion Button
+    @IBOutlet weak var conversionButtonSelection: UIButton!
+    @IBAction func conversionButton(_ sender: Any)
+    {
+        let inputValue = Double(inputValueField.text ?? "") ?? 0.0
+        let outputValue: Double = Matrices.conversion(measurementType: currentMeasurement, from: fromValue, to: toValue, inputValue: inputValue, notation: notationType, toRound: roundOrNot, roundTo: roundingValue)
+        outputValueField.text = String(outputValue)
+    }
+    
+    //Initial Loading Phase
     override func viewDidLoad()
     {
         super.viewDidLoad()
@@ -202,19 +206,6 @@ class ViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDele
     override func didReceiveMemoryWarning()
     {
         super.didReceiveMemoryWarning()
-    }
-    
-    @IBAction func clickMeasurementSelectionDropButton(_ sender: Any)
-    {
-        if measurementSelectionTableView.isHidden
-        {
-            animate(toogle: true)
-        }
-            
-        else
-        {
-            animate(toogle: false)
-        }
     }
     
     func animate(toogle: Bool)
