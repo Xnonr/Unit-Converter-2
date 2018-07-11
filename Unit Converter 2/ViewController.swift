@@ -10,7 +10,7 @@ import UIKit
 
 class ViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate, UITextFieldDelegate
 {
-    //Measurement Selection
+    //Measurement Selection Drop Down Table Menu
     @IBOutlet weak var measurementSelectionDropButton: UIButton!
     @IBOutlet weak var measurementSelectionTableView: UITableView!
     @IBAction func clickMeasurementSelectionDropButton(_ sender: Any)
@@ -22,6 +22,24 @@ class ViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDele
         else
         {
             animate(toogle: false)
+        }
+    }
+    
+    func animate(toogle: Bool)
+    {
+        if toogle
+        {
+            UIView.animate(withDuration: 0.3)
+            {
+                self.measurementSelectionTableView.isHidden = false
+            }
+        }
+        else
+        {
+            UIView.animate(withDuration: 0.3)
+            {
+                self.measurementSelectionTableView.isHidden = true
+            }
         }
     }
     
@@ -207,26 +225,9 @@ class ViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDele
     {
         super.didReceiveMemoryWarning()
     }
-    
-    func animate(toogle: Bool)
-    {
-        if toogle
-        {
-            UIView.animate(withDuration: 0.3)
-            {
-                self.measurementSelectionTableView.isHidden = false
-            }
-        }
-        else
-        {
-            UIView.animate(withDuration: 0.3)
-            {
-                self.measurementSelectionTableView.isHidden = true
-            }
-        }
-    }
 }
 
+//Setup for Measurement Selection Drop Down Table Menu
 extension ViewController: UITableViewDelegate, UITableViewDataSource
 {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int
