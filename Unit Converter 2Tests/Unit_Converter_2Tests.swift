@@ -41,6 +41,8 @@ class Unit_Converter_2Tests: XCTestCase {
         for i in 0...max
         {
             assert(Matrices.lengthFactorMatrix[i][i] == 1)
+            
+            assert(round(Matrices.lengthFactorMatrix[0][i] * Matrices.lengthFactorMatrix[i][0]) == 1)
         }
     }
     
@@ -51,6 +53,8 @@ class Unit_Converter_2Tests: XCTestCase {
         for i in 0...max
         {
             assert(Matrices.massFactorMatrix[i][i] == 1)
+            
+            assert(round(Matrices.massFactorMatrix[0][i] * Matrices.massFactorMatrix[i][0]) == 1)
         }
     }
     
@@ -61,6 +65,8 @@ class Unit_Converter_2Tests: XCTestCase {
         for i in 0...max
         {
             assert(Matrices.pressureFactorMatrix[i][i] == 1)
+            
+            assert(round(Matrices.pressureFactorMatrix[0][i] * Matrices.pressureFactorMatrix[i][0]) == 1)
         }
     }
     
@@ -71,6 +77,8 @@ class Unit_Converter_2Tests: XCTestCase {
         for i in 0...max
         {
             assert(Matrices.speedFactorMatrix[i][i] == 1)
+            
+            assert(round(Matrices.speedFactorMatrix[0][i] * Matrices.speedFactorMatrix[i][0]) == 1)
         }
     }
     
@@ -81,6 +89,8 @@ class Unit_Converter_2Tests: XCTestCase {
         for i in 0...max
         {
             assert(Matrices.timeFactorMatrix[i][i] == 1)
+            
+            assert(round(Matrices.timeFactorMatrix[0][i] * Matrices.timeFactorMatrix[i][0]) == 1)
         }
     }
     
@@ -91,6 +101,8 @@ class Unit_Converter_2Tests: XCTestCase {
         for i in 0...max
         {
             assert(Matrices.volumeFactorMatrix[i][i] == 1)
+            
+            assert(round(Matrices.volumeFactorMatrix[0][i] * Matrices.volumeFactorMatrix[i][0]) == 1)
         }
     }
     
