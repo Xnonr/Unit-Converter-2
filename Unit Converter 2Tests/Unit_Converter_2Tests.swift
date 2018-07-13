@@ -116,6 +116,8 @@ class Unit_Converter_2Tests: XCTestCase {
     
         for i in 0...59
         {
+            assert(Matrices.celsiusConversion(convertTo: 0, value: testTemperature[i]) == testTemperature[i])
+            
             temporaryTemperature = round(Matrices.celsiusConversion(convertTo: 1, value: testTemperature[i]))
             assert(round(Matrices.fahrenheitConversion(convertTo: 0, value: temporaryTemperature)) == testTemperature[i])
             
