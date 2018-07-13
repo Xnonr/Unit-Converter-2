@@ -46,7 +46,7 @@ class ViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDele
     static var measurementList = ["Area", "Length", "Mass", "Pressure", "Speed", "Temperature", "Time", "Volume"]
     var currentMeasurement = "Length"
     
-    //Measurement Conversion Selection
+    //Measurement Conversion Selection Picker View
     @IBOutlet weak var measurementConversionSelection: UIPickerView!
     
     func numberOfComponents(in pickerView: UIPickerView) -> Int
@@ -85,10 +85,35 @@ class ViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDele
         }
     }
     
+    /*func pickerView(_ pickerView: UIPickerView, viewForRow row: Int, forComponent component: Int, reusing view: UIView?) -> UIView
+    {
+        var pickerLabel: UILabel? = (view as? UILabel)
+        if pickerLabel == nil
+        {
+            pickerLabel = UILabel()
+            pickerLabel?.font = UIFont(name: "Copperplate", size: 10)
+            pickerLabel?.textAlignment = .center
+        }
+        if component == 0
+        {
+            var label: UILabel? = (view as? UILabel)
+            label.text = Matrices.allDatabases[row]
+            return label
+        }
+        else
+        {
+            return anotherLabel
+        }
+        pickerLabel?.text = <Data Array>[row]
+        pickerLabel?.textColor = UIColor.blue
+        
+        return pickerLabel!
+    }*/
+    
     var fromValue: Int = 0
     var toValue: Int = 0
     
-    //Notation Type
+    //Notation Type Segmented Control Button
     @IBOutlet weak var notationTypeButton: UISegmentedControl!
     @IBAction func notationTypeChanged(_ sender: UISegmentedControl)
     {
@@ -108,7 +133,7 @@ class ViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDele
     
     var notationType: String = "Decimal"
     
-    //Rounding
+    //Rounding Value Stepper Button
     @IBOutlet weak var roundingValueButton: UIStepper!
     @IBAction func roundingValueChanged(_ sender: UIStepper)
     {
@@ -183,8 +208,12 @@ class ViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDele
     {
         super.viewDidLoad()
         
-        measurementSelectionTableView.isHidden = true
+        //measurementConversionSelection.setValue(UIColor.white, forKey: "textColor")
         
+        let font = UIFont.init(name: "Copperplate", size: 10)
+        notationTypeButton.setTitleTextAttributes([NSAttributedStringKey.font: font], for: .normal)
+        
+        measurementSelectionTableView.isHidden = true
         measurementConversionSelection.isHidden = true
         notationTypeButton.isHidden = true
         roundingValueButton.isHidden = true
@@ -199,22 +228,22 @@ class ViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDele
         //self.inputValueField.layer.borderColor = UIColor.white.cgColor
         //self.inputValueField.layer.borderWidth = CGFloat(Float(1.0))
         
-        self.outputValueField.delegate = self
+        //self.outputValueField.delegate = self
         //self.outputValueField.layer.borderColor = UIColor.white.cgColor
         //self.outputValueField.layer.borderWidth = CGFloat(Float(1.0))
         
-        self.roundingValueField.delegate = self
+        //self.roundingValueField.delegate = self
         //self.roundingValueField.layer.borderColor = UIColor.white.cgColor
         //self.roundingValueField.layer.borderWidth = CGFloat(Float(1.0))
     }
     
-    //Hide keyboard when user touches outside keyboard
+    //Hides keyboard when user touches outside keyboard
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?)
     {
         self.view.endEditing(true)
     }
     
-    //Hide keyboard when user presses return key
+    //Hides keyboard when user presses return key
     func textFieldShouldReturn(_ textField: UITextField) -> Bool
     {
         textField.resignFirstResponder()

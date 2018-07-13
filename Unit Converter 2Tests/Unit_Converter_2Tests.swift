@@ -21,6 +21,7 @@ class Unit_Converter_2Tests: XCTestCase {
         super.tearDown()
     }
     
+    //Tests whether the factor matrices all correctly display 1 to 1 conversion factors in a diagonal line for identical units
     func testAreaFactorMatrix()
     {
         let max: Int = (Matrices.areaFactorMatrix.count - 1)
@@ -29,7 +30,7 @@ class Unit_Converter_2Tests: XCTestCase {
         {
             assert(Matrices.areaFactorMatrix[i][i] == 1)
             
-            assert(Matrices.areaFactorMatrix[i][i + 1] * Matrices.areaFactorMatrix[i + 1][i] == 1)
+            assert(round(Matrices.areaFactorMatrix[0][i] * Matrices.areaFactorMatrix[i][0]) == 1)
         }
     }
     
@@ -93,11 +94,12 @@ class Unit_Converter_2Tests: XCTestCase {
         }
     }
     
-    func testPerformanceExample() {
+    func testPerformanceExample()
+    {
         // This is an example of a performance test case.
-        self.measure {
+        self.measure
+        {
             // Put the code you want to measure the time of here.
         }
     }
-    
 }
