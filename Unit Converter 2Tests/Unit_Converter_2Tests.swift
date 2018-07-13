@@ -108,6 +108,7 @@ class Unit_Converter_2Tests: XCTestCase {
         }
     }
     
+    //Tests Celsius Conversion
     func testCelsiusConversion()
     {
         let testTemperature = Array(stride(from: -30.0, through: 30.0, by: 1.0))
@@ -117,6 +118,9 @@ class Unit_Converter_2Tests: XCTestCase {
         {
             temporaryTemperature = round(Matrices.celsiusConversion(convertTo: 1, value: testTemperature[i]))
             assert(round(Matrices.fahrenheitConversion(convertTo: 0, value: temporaryTemperature)) == testTemperature[i])
+            
+            temporaryTemperature = round(Matrices.celsiusConversion(convertTo: 2, value: testTemperature[i]))
+            assert(round(Matrices.kelvinConversion(convertTo: 0, value: temporaryTemperature)) == testTemperature[i])
         }
     }
     
