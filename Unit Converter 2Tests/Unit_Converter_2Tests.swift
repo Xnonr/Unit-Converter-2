@@ -11,12 +11,14 @@ import XCTest
 
 class Unit_Converter_2Tests: XCTestCase {
     
-    override func setUp() {
+    override func setUp()
+    {
         super.setUp()
         // Put setup code here. This method is called before the invocation of each test method in the class.
     }
     
-    override func tearDown() {
+    override func tearDown()
+    {
         // Put teardown code here. This method is called after the invocation of each test method in the class.
         super.tearDown()
     }
@@ -103,6 +105,18 @@ class Unit_Converter_2Tests: XCTestCase {
             assert(Matrices.volumeFactorMatrix[i][i] == 1)
             
             assert(round(Matrices.volumeFactorMatrix[0][i] * Matrices.volumeFactorMatrix[i][0]) == 1)
+        }
+    }
+    
+    func testCelsiusConversion()
+    {
+        let testTemperature = Array(stride(from: -30.0, through: 30.0, by: 1.0))
+        var temporaryTemperature = 0.0
+    
+        for i in 0...59
+        {
+            temporaryTemperature = round(Matrices.celsiusConversion(convertTo: 1, value: testTemperature[i]))
+            assert(round(Matrices.fahrenheitConversion(convertTo: 0, value: temporaryTemperature)) == testTemperature[i])
         }
     }
     
