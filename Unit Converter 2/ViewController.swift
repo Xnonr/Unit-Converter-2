@@ -200,7 +200,23 @@ class ViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDele
     {
         let inputValue = Double(inputValueField.text ?? "") ?? 0.0
         let outputValue: Double = Matrices.conversion(measurementType: currentMeasurement, from: fromValue, to: toValue, inputValue: inputValue, notation: notationType, toRound: roundOrNot, roundTo: roundingValue)
-        outputValueField.text = String(outputValue)
+        
+        if(notationType == "Scientific" )
+        {
+            let scientificFormat = NumberFormatter()
+            scientificFormat.numberStyle = .scientific
+            scientificFormat.positiveFormat = "0.###E+0"
+            scientificFormat.exponentSymbol = "e"
+            outputValueField.text = scientificFormat.string(from: NSNumber(value: outputValue))!
+        }
+        else if(notationType == "Fraction")
+        {
+            outputValueField.text = String(outputValue)
+        }
+        else
+        {
+            outputValueField.text = String(outputValue)
+        }
     }
     
     //Initial Loading Phase
