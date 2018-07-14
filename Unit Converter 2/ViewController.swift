@@ -199,13 +199,14 @@ class ViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDele
     @IBAction func conversionButton(_ sender: Any)
     {
         let inputValue = Double(inputValueField.text ?? "") ?? 0.0
-        let outputValue: Double = Matrices.conversion(measurementType: currentMeasurement, from: fromValue, to: toValue, inputValue: inputValue, notation: notationType, toRound: roundOrNot, roundTo: roundingValue)
+        let outputValue: Double = Matrices.conversion(measurementType: currentMeasurement, from: fromValue, to: toValue, inputValue: inputValue, toRound: roundOrNot, roundTo: roundingValue)
         
-        if(notationType == "Scientific" )
+        if(notationType == "Scientific")
         {
             let scientificFormat = NumberFormatter()
             scientificFormat.numberStyle = .scientific
-            scientificFormat.positiveFormat = "0.###E+0"
+            scientificFormat.maximumFractionDigits = 15
+            scientificFormat.positiveFormat = "0.###############E+0"
             scientificFormat.exponentSymbol = "e"
             outputValueField.text = scientificFormat.string(from: NSNumber(value: outputValue))!
         }
@@ -215,7 +216,10 @@ class ViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDele
         }
         else
         {
-            outputValueField.text = String(outputValue)
+            let decimalFormat = NumberFormatter()
+            decimalFormat.numberStyle = .decimal
+            decimalFormat.maximumFractionDigits = 15
+            outputValueField.text = decimalFormat.string(from: NSNumber(value: outputValue))!
         }
     }
     
