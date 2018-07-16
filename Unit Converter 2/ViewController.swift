@@ -87,27 +87,7 @@ class ViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDele
     
     /*func pickerView(_ pickerView: UIPickerView, viewForRow row: Int, forComponent component: Int, reusing view: UIView?) -> UIView
     {
-        var pickerLabel: UILabel? = (view as? UILabel)
-        if pickerLabel == nil
-        {
-            pickerLabel = UILabel()
-            pickerLabel?.font = UIFont(name: "Copperplate", size: 10)
-            pickerLabel?.textAlignment = .center
-        }
-        if component == 0
-        {
-            var label: UILabel? = (view as? UILabel)
-            label.text = Matrices.allDatabases[row]
-            return label
-        }
-        else
-        {
-            return anotherLabel
-        }
-        pickerLabel?.text = <Data Array>[row]
-        pickerLabel?.textColor = UIColor.blue
-        
-        return pickerLabel!
+        <#code#>
     }*/
     
     var fromValue: Int = 0
